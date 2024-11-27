@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIN Code Message</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Enter Your PIN</h1>
+        <input type="password" id="pinCode" maxlength="4" placeholder="Enter 4-digit PIN" oninput="validatePin()">
+        <button onclick="checkPin()">Submit</button>
+
+        <p id="error-message" class="error-message"></p>
+
+        <div id="message" class="message">
+            <p>Congratulations! You've unlocked the message. 🎉</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
