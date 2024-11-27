@@ -1,25 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIN Code Message</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpongeBob PIN Login</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+    body {
+      font-family: 'Luckiest Guy', cursive;
+      background: linear-gradient(to bottom, #87CEEB, #00BFFF);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      background: #FEEA65; /* SpongeBob yellow */
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      border: 5px solid #E3A817; /* Brown border */
+    }
+    h1 {
+      color: #0066CC; /* SpongeBob blue */
+      margin-bottom: 20px;
+    }
+    input {
+      padding: 10px;
+      margin: 10px 0;
+      width: 200px;
+      border: 2px solid #E3A817;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      background: #0066CC;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover {
+      background: #004C99;
+    }
+    .error {
+      margin-top: 10px;
+      color: red;
+    }
+    .bubbles {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 2rem;
+      color: white;
+      animation: float 5s infinite ease-in-out;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Welcome to Bikini Bottom!</h1>
+    <p>Enter the secret PIN to access the hidden treasure!</p>
+    <input type="password" id="pinInput" maxlength="4" placeholder="Enter 4-digit PIN">
+    <button onclick="validatePIN()">Submit</button>
+    <div id="error" class="error"></div>
+  </div>
+  <div class="bubbles">🫧</div>
+  <script>
+    const correctPIN = "3429";
 
-    <div class="container">
-        <h1>Enter Your PIN</h1>
-        <input type="password" id="pinCode" maxlength="4" placeholder="Enter 4-digit PIN" oninput="validatePin()">
-        <button onclick="checkPin()">Submit</button>
+    function validatePIN() {
+      const input = document.getElementById("pinInput").value;
+      const error = document.getElementById("error");
 
-        <p id="error-message" class="error-message"></p>
-
-        <div id="message" class="message">
-            <p>Congratulations! You've unlocked the message. 🎉</p>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+      if (input === correctPIN) {
+        window.location.href = "message.html";
+      } else {
+        error.textContent = "Incorrect PIN! Try again, bujek!";
+      }
+    }
+  </script>
 </body>
 </html>

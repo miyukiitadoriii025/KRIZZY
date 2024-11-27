@@ -1,4 +1,4 @@
-const correctPin = "1234"; // Set your 4-digit PIN here
+const correctPin = "3429"; // Set your 4-digit PIN here
 
 function checkPin() {
     const enteredPin = document.getElementById("pinCode").value;
@@ -12,7 +12,7 @@ function checkPin() {
     } else {
         // Incorrect PIN, show error message
         errorMessage.style.display = "block";
-        errorMessage.textContent = "Incorrect PIN. Please try again!";
+        errorMessage.textContent = "Incorrect PIN. Please try again! Clue: GAP";
         message.style.display = "none";
     }
 }
